@@ -23,11 +23,7 @@ def update_github_repo():
         check=True
     )
 
-    # Optionally pull from the remote to merge if there's existing work:
-    # subprocess.run(["git", "pull", "origin", "main",
-    # "--allow-unrelated-histories"], check=False)
-
-    # 3. Stage all files
+    # 3. Stage all files except .gitignore
     subprocess.run(["git", "add", "."], check=True)
 
     # 4. Commit changes
@@ -35,8 +31,6 @@ def update_github_repo():
     subprocess.run(["git", "commit", "-m", commit_message], check=True)
 
     # 5. Push to the 'main' branch on GitHub
-    # (If your local branch is 'master', change 'main' to 'master'
-    # or whichever branch you use)
     subprocess.run(["git", "push", "-u", "origin", "main"], check=True)
 
 
